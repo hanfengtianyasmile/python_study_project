@@ -39,7 +39,13 @@ def tcpLink(conn):
 
         conn.send(str(len(cmd_res.encode(charset))).encode(charset))
 
-        time.sleep(0.5)
+        #防止tcp粘包
+
+        #time.sleep(0.5)
+
+        ack = conn.recv(1024)
+
+        print('客户端说，准备好了', ack)
 
         conn.send(cmd_res.encode(charset))
 

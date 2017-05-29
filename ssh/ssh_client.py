@@ -23,6 +23,8 @@ while True:
 
     print('命令结果大小', cmd_res_size)
 
+    client.send('i am ready '.encode(charset))
+
     receive_size_sum = 0
     receive_data = b''
 
