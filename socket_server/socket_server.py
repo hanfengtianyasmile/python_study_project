@@ -23,7 +23,7 @@ if __name__ == '__main__':
     server = ThreadingTCPServer(('127.0.0.1', 9999), requestHandler)
     server.serve_forever()
 
-    # 备注：直接使用 socket 库来实现服务器也并不是很难，比如ssh小项目里
+    # 备注：直接使用 socket 库来实现服务器也并不是很难，比如ssh小项目里,多线程也是直接再起一个线程即可
 
 
 
