@@ -18,3 +18,8 @@ socketserver包的小例子
 
 socket编程，实现简单的ssh功能
 
+###paramiko
+
+paramiko模块，可以实现ssh、ftp功能
+
+连接服务器可采用账号密码、秘钥公钥方式，可参考 [SSH原理与运用](http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html) 、 [数字签名是什么？](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)
