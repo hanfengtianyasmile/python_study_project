@@ -1,4 +1,4 @@
-#队列使用,生产者、消费者模型
+#队列使用,生产者、消费者模型(线程使用)
 
 import threading, time
 import queue
