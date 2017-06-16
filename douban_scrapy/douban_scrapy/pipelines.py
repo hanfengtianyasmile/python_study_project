@@ -5,14 +5,19 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
+from scrapy.conf import settings
+import pymongo
 
 class DoubanScrapyPipeline(object):
     def __init__(self):
-        self.f = open('somefile.txt', 'wt', encoding='UTF-8')
+        host = settings['MONGODB_HOST']
+        port = settings['MONGODB_PORT']
+        dbName = settings['MONGODB_DBNAME']
+        client = pymongo.MongoClient(host=host, port=port)
+        tdb = client[dbName]
+        self.table = tdb[settings['MONGODB_DOCNAME']]
 
     def process_item(self, item, spider):
-        self.f.writelines('电影名称：' + item['title'] + '\n')
-        self.f.writelines('电影介绍：' + item['movie_info'] + '\n')
-        self.f.writelines('评分：' + item['star'] + '\n')
-        self.f.writelines('经典话语：' + item['quote'] + '\n\n')
+
+        self.table.insert(dict(item))
         return item

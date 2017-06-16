@@ -48,4 +48,4 @@ Event是Python多线程通信的最简单的机制之一.一个线程标识一�
 
 ### douban_scrapy
 
-使用scrapy，爬取豆瓣top250的电影
+使用scrapy，爬取豆瓣top250的电影，并存取到mongod中
