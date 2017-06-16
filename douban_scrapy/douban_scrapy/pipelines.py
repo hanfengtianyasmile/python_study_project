@@ -11,8 +11,8 @@ class DoubanScrapyPipeline(object):
         self.f = open('somefile.txt', 'wt', encoding='UTF-8')
 
     def process_item(self, item, spider):
-        self.f.writelines('回帖时间：' + item['title'] + '\n')
-        self.f.writelines('回帖内容：' + item['movie_info'] + '\n')
-        self.f.writelines('回帖人：' + item['star'] + '\n\n')
-        self.f.writelines('回帖人：' + item['star'] + '\n\n')
+        self.f.writelines('电影名称：' + item['title'] + '\n')
+        self.f.writelines('电影介绍：' + item['movie_info'] + '\n')
+        self.f.writelines('评分：' + item['star'] + '\n')
+        self.f.writelines('经典话语：' + item['quote'] + '\n\n')
         return item
