@@ -14,6 +14,6 @@ if __name__ == '__main__':
     p.start()
     print(parent_conn.recv())
     print(parent_conn.recv())
-    time.sleep(2)
+    time.sleep(5)
     parent_conn.send('333')
     p.join()

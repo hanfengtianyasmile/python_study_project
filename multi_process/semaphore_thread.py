@@ -1,31 +1,28 @@
+
+
 import threading
 import random
 import time
 
 
 class MyThread(threading.Thread):
-    availableTables = ['A', 'B', 'C', 'D', 'E']
+    availableTables = ['A', 'B', 'C']
 
     def __init__(self, threadName, semaphore):
-        self.interval = random.randrange(1, 6)
+        self.interval = 1
         self.semaphore = semaphore
         threading.Thread.__init__(self, name=threadName)
 
     def run(self):
+        # 获取信号量
         self.semaphore.acquire()
-        # acquire a semaphore
-        table = MyThread.availableTables.pop()
-        print("%s entered;seated at table %s." % (self.getName(), table))
-        time.sleep(self.interval)
-
-        # free a table
-        print("%s exiting,freeing table %s." % (self.getName(), table))
-        MyThread.availableTables.append(table)
+        print("entered;seated at table %s." % self.getName())
+        time.sleep(1)
 
         self.semaphore.release()
 
 
-mySemaphore = threading.Semaphore(len(MyThread.availableTables))
+mySemaphore = threading.Semaphore(3)
 
 
 def Test():
